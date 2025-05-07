@@ -101,7 +101,9 @@ nav {
   justify-content: space-around;
   align-items: center;
   gap: 0.5rem;
-  background-color: var(--color-fondo);
+  background-image: url("../img/fondo.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
 .container {
@@ -282,7 +284,9 @@ footer {
     align-items: start;
     gap: 1rem;
     padding: 20px;
-    background-color: var(--color-fondo);
+    background-image: url("../img/fondo.jpg");
+    background-size: cover;
+    background-position: center;
   }
 
   .container {
