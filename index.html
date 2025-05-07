@@ -11,7 +11,7 @@
       <h1>Dashboard</h1>
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="Buscar datos..."
         class="search-bar"
         maxlength="250"
         size="50"
@@ -22,7 +22,7 @@
         <h1>Dashboard</h1>
         <input
           type="text"
-          placeholder="Search..."
+          placeholder="Buscar datos..."
           class="search-bar"
           maxlength="250"
           size="50"
@@ -30,29 +30,80 @@
       </div>
       <ul class="nav-list">
         <li><a href="#" class="next-pg">Inicio</a></li>
-        <li><a href="#" class="next-pg">Acerca de nosotros</a></li>
-        <li><a href="#" class="next-pg">Usuarios</a></li>
-        <li><a href="#" class="next-pg">Contacto</a></li>
+        <li><a href="#" class="next-pg">Estadísticas</a></li>
+        <li><a href="#" class="next-pg">Reportes</a></li>
+        <li><a href="#" class="next-pg">Configuración</a></li>
       </ul>
     </nav>
     <main class="main-container">
-      <section class="container" style="background-color: #878e88">
-        <div><h2 class="title-cont">TITULO CENTRADO</h2></div>
-        <div><p class="info-cont">INFFO</p></div>
+  
+      <section class="container" style="background-color: var(--color-3)">
+        <div><h2 class="title-cont">Ventas Mensuales</h2></div>
+        <div class="grafico-container">
+          <div class="bar" style="height: 40px;">
+            <span class="bar-label">ENE</span>
+          </div>
+          <div class="bar" style="height: 60px;">
+            <span class="bar-label">FEB</span>
+          </div>
+          <div class="bar" style="height: 80px;">
+            <span class="bar-label">MAR</span>
+          </div>
+          <div class="bar" style="height: 50px;">
+            <span class="bar-label">ABR</span>
+          </div>
+          <div class="bar" style="height: 70px;">
+            <span class="bar-label">MAY</span>
+          </div>
+          <div><p class="info-cont">Total: $857,392</p></div>
+        </div>
       </section>
-      <section class="container" style="background-color: #96c0b7">
-        <div><h2 class="title-cont">TITULO CENTRADO</h2></div>
-        <div><p class="info-cont">INFFO</p></div>
+    
+      <section class="container" style="background-color: var(--color-4)">
+        <div><h2 class="title-cont">Rendimiento</h2></div>
+        <div class="circular-grafico">
+          <div class="grafico-center">75%</div>
+        </div>
+        <div><p class="info-cont">Objetivo mensual completado</p></div>
       </section>
-      <section class="container" style="background-color: #d4dfc7">
-        <div><h2 class="title-cont">TITULO CENTRADO</h2></div>
-        <div><p class="info-cont">INFFO</p></div>
+
+      <section class="container" style="background-color: var(--color-5)">
+        <div><h2 class="title-cont">Métricas Clave</h2></div>
+        <div class="data-grid">
+          <div class="data-item">
+            <div class="data-value">142</div>
+            <div class="data-label">Nuevos usuarios</div>
+          </div>
+          <div class="data-item">
+            <div class="data-value">89%</div>
+            <div class="data-label">Satisfacción</div>
+          </div>
+          <div class="data-item">
+            <div class="data-value">6.3k</div>
+            <div class="data-label">Visitas</div>
+          </div>
+          <div class="data-item">
+            <div class="data-value">17</div>
+            <div class="data-label">Días activos</div>
+          </div>
+        </div>
       </section>
-      <section class="container" style="background-color: #fef6c9">
-        <div><h2 class="title-cont">TITULO CENTRADO</h2></div>
-        <div><p class="info-cont">INFFO</p></div>
+
+      <section class="container" style="background-color: var(--color-1)">
+        <div><h2 class="title-cont" style="color: #333;">Notificaciones</h2></div>
+        <div style="text-align: left; color: #333; padding: 5px; font-weight: bold;">
+          <ul>
+            <li>Reunión de equipo - 14:00</li>
+            <li>3 tareas pendientes</li>
+            <li>Actualización del sistema - 8 Mayo</li>
+            <li> Nuevo reporte disponible</li>
+          </ul>
       </section>
+
     </main>
-    <footer></footer>
+    <footer class="footer">
+      Dashboard - Serrano © 2025 
+    </footer>
   </body>
+</html>
 </html>
