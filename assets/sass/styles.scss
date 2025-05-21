@@ -1,0 +1,276 @@
+/* Paleta de colores */
+// Definimos los colores principales del diseño
+$color-base: #ffffff;
+$color-fondo: #efefef;
+$color-1: #fef6c9;
+$color-2: #725752;
+$color-3: #878e88;
+$color-4: #96c0b7;
+$color-5: #d4dfc7;
+
+/* Mixin para flexbox */
+// Este mixin permite centrar elementos fácilmente
+@mixin flex-center($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+/* Estilos compartidos */
+// Este extend se usa para contenedores con bordes redondeados y sombra
+%container-styles {
+  border-radius: 8px;
+  padding: 16px;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  // Configuración del layout principal con grid
+  font-family: "Poppins", sans-serif;
+  background-color: $color-base;
+  color: #333;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-areas:
+    "header header header header"
+    "nav nav nav nav"
+    "main-container main-container main-container main-container"
+    "footer footer footer footer";
+  min-height: 100vh;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 3fr 3fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "nav header header header"
+      "nav main-container main-container main-container"
+      "footer footer footer footer";
+  }
+}
+
+header {
+  display: none;
+
+  @media (min-width: 768px) {
+    grid-area: header;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: $color-base;
+  }
+}
+
+.mobile-header {
+  border-bottom: $color-2 2px solid;
+  padding: 10px;
+  margin-bottom: 10px;
+
+  h1 {
+    text-align: center;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+nav {
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: $color-2;
+
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 0.5rem;
+    padding: 4px;
+    margin: 4px auto;
+
+    li {
+      margin-left: 0.5rem;
+
+      @media (min-width: 768px) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .nav-list {
+      flex-direction: column;
+      text-align: center;
+      justify-content: flex-start;
+      gap: 36px;
+      padding: 8px;
+      margin: 8px;
+    }
+  }
+}
+
+.next-pg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(128, 128, 128, 0.3);
+  color: $color-base;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.main-container {
+  grid-area: main-container;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.5rem;
+  background-image: url("../img/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: start;
+    gap: 1rem;
+    padding: 20px;
+  }
+}
+
+.container {
+  @extend %container-styles; // Aplicamos los estilos compartidos
+  min-height: 150px;
+  width: 75%;
+  margin: 0.5rem;
+
+  @media (min-width: 768px) {
+    min-height: 200px;
+    width: 300px;
+  }
+}
+
+.title-cont {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+  color: $color-base;
+}
+
+.info-cont {
+  font-size: 14px;
+  padding: 4px;
+  text-align: center;
+  color: $color-base;
+}
+
+.grafico-container {
+  @include flex-center(
+    row,
+    space-around,
+    flex-end
+  ); // Usamos el mixin para centrar
+  height: 100px;
+  padding: 12px;
+
+  .bar {
+    // Estilos para las barras del gráfico
+    width: 20px;
+    background-color: rgba($color-base, 0.7);
+    border-radius: 3px 3px 0 0;
+    position: relative;
+
+    .bar-label {
+      // Etiquetas de las barras
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 10px;
+      color: $color-base;
+    }
+  }
+}
+
+.circular-grafico {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 50%;
+  background: conic-gradient(
+    rgba($color-base, 0.9) 0% 75%,
+    rgba($color-base, 0.3) 75% 100%
+  );
+
+  .grafico-center {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    top: 15px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: $color-base;
+  }
+}
+
+.data-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+
+  .data-item {
+    text-align: center;
+
+    .data-value {
+      font-size: 24px;
+      font-weight: bold;
+      color: $color-base;
+    }
+
+    .data-label {
+      font-size: 12px;
+      color: rgba($color-base, 0.8);
+    }
+  }
+}
+
+footer {
+  grid-area: footer;
+  background-color: $color-base;
+  padding: 10px;
+  text-align: center;
+  font-size: 12px;
+  color: $color-2;
+}
